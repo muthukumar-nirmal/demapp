@@ -1,21 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>Daily Expense Manager</title>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  	<script type="text/javascript" th:src="@{/js/common.js}"></script>
-  	
-  	<style type="text/css">
-	/* Fixed navbar */
-	body {
-		padding-top: 80px;
-	}
-	</style>
+<title>Daily Expense Manager</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" th:src="@{/js/common.js}"></script>
+
 </head>
 
 <body>
@@ -40,10 +34,10 @@
 			</div>
 		</div>
 	</nav>
-	
+
 	<div class="container" id="signIn">
 		<!-- <img th:src="@{/images/login.jpg}" class="img-responsive center-block" width="300" height="300" alt="Logo" /> -->
-		<form th:action="@{/login}" method="POST" class="form-signin">
+		<!-- <form th:action="@{/login}" method="POST" class="form-signin">
 			<h3 class="form-signin-heading" th:text="Welcome"></h3>
 			<br/>
 			 
@@ -57,7 +51,57 @@
 			</div>
 			<button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit" th:text="Login"></button>
 			<a  th:href="@{/registration}">Register</a>
-		</form>
+		</form> -->
+
+		<div class="form_wrapper">
+			<div class="form_container">
+				<div class="title_container">
+					<h2>Responsive Login Form</h2>
+				</div>
+				<div class="row clearfix">
+					<div class="col_half">
+						<div class="social_btn fb">
+							<a href="#"><span><i class="fa fa-facebook"
+									aria-hidden="true"></i></span>Sign in with Facebook</a>
+						</div>
+						<div class="social_btn tw">
+							<a href="#"><span><i class="fa fa-twitter"
+									aria-hidden="true"></i></span>Sign in with Twitter</a>
+						</div>
+						<div class="social_btn gplus">
+							<a href="#"><span><i class="fa fa-google-plus"
+									aria-hidden="true"></i></span>Sign in with Google+</a>
+						</div>
+						<div class="row clearfix create_account">
+							<div>
+								<a href="#">Create an Account</a>
+							</div>
+						</div>
+					</div>
+					<div class="col_half last">
+						<form>
+							<div class="input_field">
+								<span><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i></span> <input
+									type="email" name="email" placeholder="Email" required="" />
+							</div>
+							<div class="input_field">
+								<span><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span> <input
+									type="password" name="phone" placeholder="Password" required="" />
+							</div>
+							<input class="button" type="submit" value="Sign in" />
+							<div class="row clearfix bottom_row">
+								<div class="col_half remember_me">
+									<input name="" type="checkbox" value="" /> Remember me
+								</div>
+								<div class="col_half forgot_pw">
+									<a href="#">Forgot Password?</a>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div id="aboutUsInformation" style="display: none;">
 		<h3>This is About Us Information</h3>
@@ -65,6 +109,6 @@
 	<div id="contactUsInformation" style="display: none;">
 		<h3>This is Contact Us Information</h3>
 	</div>
-	
+
 </body>
 </html>
