@@ -1,1 +1,1 @@
-INSERT INTO `role` VALUES (1,'ADMIN');
+INSERT INTO `tbl_role` VALUES (1,'ADMIN');

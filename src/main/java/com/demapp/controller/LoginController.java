@@ -68,4 +68,15 @@ public class LoginController {
 		modelAndView.setViewName("admin/home");
 		return modelAndView;
 	}
+	
+	@RequestMapping(value="/user/home", method = RequestMethod.GET)
+	public ModelAndView userHome(){
+		ModelAndView modelAndView = new ModelAndView();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		modelAndView.addObject("userName", "Welcome " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
+		modelAndView.addObject("userMessage","Content Available Only for Users with User Role");
+		modelAndView.setViewName("user/home");
+		return modelAndView;
+	}
 }

@@ -9,7 +9,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" th:src="@{/js/common.js}"></script>
-
+<style type="text/css">
+body{
+	padding-top: 40px;
+}
+</style>
 </head>
 
 <body>
@@ -37,22 +41,6 @@
 
 	<div class="container" id="signIn">
 		<!-- <img th:src="@{/images/login.jpg}" class="img-responsive center-block" width="300" height="300" alt="Logo" /> -->
-		<!-- <form th:action="@{/login}" method="POST" class="form-signin">
-			<h3 class="form-signin-heading" th:text="Welcome"></h3>
-			<br/>
-			 
-			<input type="text" id="email" name="email"  th:placeholder="Email"
-				class="form-control" /> <br/> 
-			<input type="password"  th:placeholder="Password"
-				id="password" name="password" class="form-control" /> <br /> 
-				
-			<div align="center" th:if="${param.error}">
-				<p style="font-size: 20; color: #FF1C19;">Email or Password invalid, please verify</p>
-			</div>
-			<button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit" th:text="Login"></button>
-			<a  th:href="@{/registration}">Register</a>
-		</form> -->
-
 		<div class="form_wrapper">
 			<div class="form_container">
 				<div class="title_container">
@@ -74,19 +62,21 @@
 						</div>
 						<div class="row clearfix create_account">
 							<div>
-								<a href="#">Create an Account</a>
+								<a th:href="@{/registration}">Create an Account</a>
 							</div>
 						</div>
 					</div>
 					<div class="col_half last">
-						<form>
+						<form th:action="@{/login}" method="POST">
 							<div class="input_field">
-								<span><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i></span> <input
-									type="email" name="email" placeholder="Email" required="" />
+								<span><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i></span> 	
+								<input type="text" id="email" name="email"  th:placeholder="Email"
+								class="form-control" />
 							</div>
 							<div class="input_field">
-								<span><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span> <input
-									type="password" name="phone" placeholder="Password" required="" />
+								<span><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
+								<input type="password"  th:placeholder="Password"
+								id="password" name="password" class="form-control" />
 							</div>
 							<input class="button" type="submit" value="Sign in" />
 							<div class="row clearfix bottom_row">
@@ -99,6 +89,9 @@
 							</div>
 						</form>
 					</div>
+				</div>
+				<div align="center" th:if="${param.error}">
+					<p style="font-size: 20; color: #FF1C19;">Email or Password invalid, please verify</p>
 				</div>
 			</div>
 		</div>

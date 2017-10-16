@@ -28,6 +28,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	@Value("${spring.queries.roles-query}")
 	private String rolesQuery;
+	
+	@Autowired
+	private SimpleAuthenticationSuccessHandler successHandler;
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth)
@@ -48,10 +51,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers("/").permitAll()
 				.antMatchers("/login").permitAll()
 				.antMatchers("/registration").permitAll()
-				.antMatchers("/admin/**").hasAuthority("ADMIN").anyRequest()
+				.antMatchers("/user").hasRole("USER")
+				.antMatchers("/admin").hasRole("ADMIN").anyRequest()
 				.authenticated().and().csrf().disable().formLogin()
 				.loginPage("/login").failureUrl("/login?error=true")
-				.defaultSuccessUrl("/admin/home")
+				.successHandler(successHandler)
 				.usernameParameter("email")
 				.passwordParameter("password")
 				.and().logout()
