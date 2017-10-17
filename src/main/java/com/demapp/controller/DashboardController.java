@@ -24,7 +24,7 @@ public class DashboardController {
 	@Autowired
 	UserService userService;
 
-	@RequestMapping(value="/admin/home", method = RequestMethod.GET)
+	@RequestMapping(value="/admin/adminHome", method = RequestMethod.GET)
 	public ModelAndView home(){
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -35,7 +35,7 @@ public class DashboardController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/user/home", method = RequestMethod.GET)
+	@RequestMapping(value="/user/userHome", method = RequestMethod.GET)
 	public ModelAndView userHome(){
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();

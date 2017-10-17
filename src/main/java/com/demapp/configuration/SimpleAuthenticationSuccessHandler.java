@@ -32,14 +32,14 @@ public class SimpleAuthenticationSuccessHandler implements AuthenticationSuccess
 		authorities.forEach(authority -> {
 			if(authority.getAuthority().equals("USER")) {
 			try {
-					redirectStrategy.sendRedirect(arg0, arg1, "/user/home");
+					redirectStrategy.sendRedirect(arg0, arg1, "/user/userHome");
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			} else if(authority.getAuthority().equals("ADMIN")) {
 			try {
-					redirectStrategy.sendRedirect(arg0, arg1, "/admin/home");
+					redirectStrategy.sendRedirect(arg0, arg1, "/admin/adminHome");
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
