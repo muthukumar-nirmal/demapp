@@ -28,18 +28,17 @@ public class SimpleAuthenticationSuccessHandler implements AuthenticationSuccess
 	public void onAuthenticationSuccess(HttpServletRequest arg0, HttpServletResponse arg1, Authentication authentication)
 			throws IOException, ServletException {
 		
-		@SuppressWarnings("unchecked")
-		Collection <GrantedAuthority> authorities = (Collection<GrantedAuthority>) authentication.getAuthorities();
+		Collection < ? extends GrantedAuthority> authorities = authentication.getAuthorities();
 		authorities.forEach(authority -> {
 			if(authority.getAuthority().equals("USER")) {
-				try {
+			try {
 					redirectStrategy.sendRedirect(arg0, arg1, "/user/home");
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			} else if(authority.getAuthority().equals("ADMIN")) {
-				try {
+			try {
 					redirectStrategy.sendRedirect(arg0, arg1, "/admin/home");
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -49,7 +48,5 @@ public class SimpleAuthenticationSuccessHandler implements AuthenticationSuccess
 	            throw new IllegalStateException();
 	        }
 		});
-		
 	}
- 
 }

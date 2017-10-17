@@ -3,17 +3,13 @@
 
 <head>
 <title>Daily Expense Manager</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/common.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript" th:src="@{/js/common.js}"></script>
-<style type="text/css">
-body{
-	padding-top: 40px;
-}
-</style>
+
 </head>
 
 <body>
@@ -31,20 +27,24 @@ body{
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li id="home" class="active"><a onclick="loadHome()">Home</a></li>
-					<li id="aboutUs"><a onclick="loadAboutUs()">About Us</a></li>
-					<li id="contactUs"><a onclick="loadContactUs()">Contact Us</a></li>
+					<li id="home"><a th:href="@{/home}">Home</a></li>
+					<li id="aboutUs"><a th:href="@{/aboutUs}">About Us</a></li>
+					<li id="contactUs"><a th:href="@{/contactUs}">Contact Us</a></li>
 				</ul>
+				 <ul class="nav navbar-nav navbar-right">
+			       <li id="reigisterId"><a th:href="@{/registration}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+			      <li id="loginId" class="active"><a th:href="@{/}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			    </ul>
 			</div>
 		</div>
 	</nav>
 
-	<div class="container" id="signIn">
+	<div class="container">
 		<!-- <img th:src="@{/images/login.jpg}" class="img-responsive center-block" width="300" height="300" alt="Logo" /> -->
-		<div class="form_wrapper">
+		<div class="form_wrapper" id="signInInformation">
 			<div class="form_container">
 				<div class="title_container">
-					<h2>Responsive Login Form</h2>
+					<h2>Login Form</h2>
 				</div>
 				<div class="row clearfix">
 					<div class="col_half">
@@ -59,11 +59,6 @@ body{
 						<div class="social_btn gplus">
 							<a href="#"><span><i class="fa fa-google-plus"
 									aria-hidden="true"></i></span>Sign in with Google+</a>
-						</div>
-						<div class="row clearfix create_account">
-							<div>
-								<a th:href="@{/registration}">Create an Account</a>
-							</div>
 						</div>
 					</div>
 					<div class="col_half last">
@@ -81,7 +76,7 @@ body{
 							<input class="button" type="submit" value="Sign in" />
 							<div class="row clearfix bottom_row">
 								<div class="col_half remember_me">
-									<input name="" type="checkbox" value="" /> Remember me
+									<input name="" type="checkbox" value="" style="margin: 0px 0 0"/> Remember me
 								</div>
 								<div class="col_half forgot_pw">
 									<a href="#">Forgot Password?</a>
@@ -95,13 +90,6 @@ body{
 				</div>
 			</div>
 		</div>
-	</div>
-	<div id="aboutUsInformation" style="display: none;">
-		<h3>This is About Us Information</h3>
-	</div>
-	<div id="contactUsInformation" style="display: none;">
-		<h3>This is Contact Us Information</h3>
-	</div>
-
+		</div>
 </body>
 </html>

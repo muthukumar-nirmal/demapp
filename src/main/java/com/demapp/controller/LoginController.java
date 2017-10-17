@@ -3,8 +3,6 @@ package com.demapp.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,17 +21,37 @@ public class LoginController {
 	@RequestMapping(value={"/", "/login"}, method = RequestMethod.GET)
 	public ModelAndView login(){
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("login");
+		modelAndView.setViewName("unauthorized/login");
 		return modelAndView;
 	}
 	
+	@RequestMapping(value={"/home"}, method = RequestMethod.GET)
+	public ModelAndView home(){
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("unauthorized/home");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value={"/aboutUs"}, method = RequestMethod.GET)
+	public ModelAndView aboutUs(){
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("unauthorized/aboutUs");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value={"/contactUs"}, method = RequestMethod.GET)
+	public ModelAndView contactUs(){
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("unauthorized/contactUs");
+		return modelAndView;
+	}
 	
 	@RequestMapping(value="/registration", method = RequestMethod.GET)
 	public ModelAndView registration(){
 		ModelAndView modelAndView = new ModelAndView();
 		User user = new User();
 		modelAndView.addObject("user", user);
-		modelAndView.setViewName("registration");
+		modelAndView.setViewName("unauthorized/registration");
 		return modelAndView;
 	}
 	
@@ -47,36 +65,14 @@ public class LoginController {
 							"There is already a user registered with the email provided");
 		}
 		if (bindingResult.hasErrors()) {
-			modelAndView.setViewName("registration");
+			modelAndView.setViewName("unauthorized/registration");
 		} else {
 			userService.saveUser(user);
 			modelAndView.addObject("successMessage", "User has been registered successfully");
 			modelAndView.addObject("user", new User());
-			modelAndView.setViewName("registration");
+			modelAndView.setViewName("unauthorized/registration");
 			
 		}
-		return modelAndView;
-	}
-	
-	@RequestMapping(value="/admin/home", method = RequestMethod.GET)
-	public ModelAndView home(){
-		ModelAndView modelAndView = new ModelAndView();
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user = userService.findUserByEmail(auth.getName());
-		modelAndView.addObject("userName", "Welcome " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
-		modelAndView.addObject("adminMessage","Content Available Only for Users with Admin Role");
-		modelAndView.setViewName("admin/home");
-		return modelAndView;
-	}
-	
-	@RequestMapping(value="/user/home", method = RequestMethod.GET)
-	public ModelAndView userHome(){
-		ModelAndView modelAndView = new ModelAndView();
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user = userService.findUserByEmail(auth.getName());
-		modelAndView.addObject("userName", "Welcome " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
-		modelAndView.addObject("userMessage","Content Available Only for Users with User Role");
-		modelAndView.setViewName("user/home");
 		return modelAndView;
 	}
 }

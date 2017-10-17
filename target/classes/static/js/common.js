@@ -2,7 +2,7 @@
  * 
  */
 
-var BASE_URL = 'http://localhost:8080/api/';
+var BASE_URL = 'http://localhost:8080/';
 
 function isValidEmailAddress(emailAddress) 
 {
@@ -16,6 +16,8 @@ function removeActiveClass(){
     $('#aboutUs').removeClass('active');
     $('#contactUs').removeClass('active');
     $('#home').removeClass('active');
+    $('#loginId').removeClass('active');
+    $('#reigisterId').removeClass('active');
 }
 
 function hideAndShowMenuBeforeLogin()
@@ -27,9 +29,11 @@ function hideAndShowMenuBeforeLogin()
 
 function hideAndShowBodySection()
 {
-    $('#signIn').hide();
     $('#aboutUsInformation').hide();
     $('#contactUsInformation').hide();
+    $('#userHomeInformation').hide();
+    $('#signInInformation').hide();
+    $('#registerInformation').hide();
 }
 
 function loadHome()
@@ -37,7 +41,7 @@ function loadHome()
     removeActiveClass();
     hideAndShowBodySection();
     $('#home').addClass('active');
-    $('#signIn').show();
+    $('#userHomeInformation').show();
 }
 
 function loadAboutUs()
@@ -55,4 +59,5 @@ function loadContactUs()
     $('#contactUs').addClass('active');
     $('#contactUsInformation').show();
 }
+
 
