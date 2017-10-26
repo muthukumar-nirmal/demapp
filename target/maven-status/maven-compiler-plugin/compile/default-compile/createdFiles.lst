@@ -1,0 +1,16 @@
+com\demapp\service\UserService.class
+com\demapp\configuration\SecurityConfiguration.class
+com\demapp\service\UserServiceImpl.class
+com\demapp\service\CategoryService.class
+com\demapp\model\Category.class
+com\demapp\repository\CategoryRepository.class
+com\demapp\repository\RoleRepository.class
+com\demapp\controller\DashboardController.class
+com\demapp\model\User.class
+com\demapp\repository\UserRepository.class
+com\demapp\service\CategoryServiceImpl.class
+com\demapp\DemoApplication.class
+com\demapp\configuration\SimpleAuthenticationSuccessHandler.class
+com\demapp\configuration\WebMvcConfig.class
+com\demapp\model\Role.class
+com\demapp\controller\LoginController.class

@@ -1,0 +1,16 @@
+D:\Merge\Workspace\eclipse\testing\demapp\src\main\java\com\demapp\DemoApplication.java
+D:\Merge\Workspace\eclipse\testing\demapp\src\main\java\com\demapp\service\CategoryService.java
+D:\Merge\Workspace\eclipse\testing\demapp\src\main\java\com\demapp\configuration\WebMvcConfig.java
+D:\Merge\Workspace\eclipse\testing\demapp\src\main\java\com\demapp\controller\LoginController.java
+D:\Merge\Workspace\eclipse\testing\demapp\src\main\java\com\demapp\configuration\SecurityConfiguration.java
+D:\Merge\Workspace\eclipse\testing\demapp\src\main\java\com\demapp\repository\RoleRepository.java
+D:\Merge\Workspace\eclipse\testing\demapp\src\main\java\com\demapp\service\UserService.java
+D:\Merge\Workspace\eclipse\testing\demapp\src\main\java\com\demapp\repository\UserRepository.java
+D:\Merge\Workspace\eclipse\testing\demapp\src\main\java\com\demapp\model\User.java
+D:\Merge\Workspace\eclipse\testing\demapp\src\main\java\com\demapp\controller\DashboardController.java
+D:\Merge\Workspace\eclipse\testing\demapp\src\main\java\com\demapp\model\Category.java
+D:\Merge\Workspace\eclipse\testing\demapp\src\main\java\com\demapp\service\CategoryServiceImpl.java
+D:\Merge\Workspace\eclipse\testing\demapp\src\main\java\com\demapp\model\Role.java
+D:\Merge\Workspace\eclipse\testing\demapp\src\main\java\com\demapp\service\UserServiceImpl.java
+D:\Merge\Workspace\eclipse\testing\demapp\src\main\java\com\demapp\configuration\SimpleAuthenticationSuccessHandler.java
+D:\Merge\Workspace\eclipse\testing\demapp\src\main\java\com\demapp\repository\CategoryRepository.java
