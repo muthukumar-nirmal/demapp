@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -56,6 +58,12 @@ public class UserServiceImpl implements UserService{
 		if(user == null){
 			return null;
 		}
+		return user;
+	}
+	
+	public User getCurrentUser(){
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = findUserByEmail(auth.getName());
 		return user;
 	}
 

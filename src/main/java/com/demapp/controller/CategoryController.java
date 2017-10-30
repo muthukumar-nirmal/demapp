@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.demapp.service.CategoryService;
 import com.demapp.service.UserService;
 
 /**
@@ -18,21 +19,24 @@ import com.demapp.service.UserService;
  *
  */
 @Controller
-public class UserController {
-
-	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
+public class CategoryController {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(CategoryController.class);
+	
+	@Autowired
+	CategoryService categoryService;
 	
 	@Autowired
 	UserService userService;
 	
-	@RequestMapping(value="/admin/user", method = RequestMethod.GET)
-	public ModelAndView listUser()
+	@RequestMapping(value="/admin/category", method = RequestMethod.GET)
+	public ModelAndView listCategory()
 	{
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("userName", userService.getCurrentUser().getName() + " " + userService.getCurrentUser().getLastName());
 		LOGGER.info("Reading username from the user object by passing username {} : " + userService.getCurrentUser().getEmail());
-		modelAndView.addObject("users", userService.listUsers());
-		modelAndView.setViewName("authorized/admin/user");
+		modelAndView.addObject("categories", categoryService.findAll());
+		modelAndView.setViewName("authorized/admin/category");
 		return modelAndView;
 	}
 

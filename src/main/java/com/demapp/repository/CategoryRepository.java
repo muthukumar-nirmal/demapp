@@ -16,7 +16,7 @@ import com.demapp.model.Category;
  *
  */
 
-@Repository
+@Repository("categoryRepository")
 public interface CategoryRepository extends JpaRepository<Category, Long> {
 	
 	List<Category> findByName(String name);

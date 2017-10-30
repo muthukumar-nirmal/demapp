@@ -15,7 +15,7 @@ import com.demapp.repository.CategoryRepository;
  * @author muthu_m
  *
  */
-@Service
+@Service("categoryService")
 public class CategoryServiceImpl implements CategoryService {
 
 	@Autowired
