@@ -5,13 +5,15 @@
 <head>
 <title>Daily Expense Manager</title>
 <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}" />
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+
 </head>
 
 <body>
@@ -48,9 +50,9 @@
 		</div>
 	</nav>
 	<div class="container">
-		<h2>Category Table</h2>
+		 <h2>Category Table</h2>
 		<table id="categoryTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
-			<thead>
+			<thead class="bg-primary">
 				<tr>
 					<th>Name</th>
 					<th>Description</th>
@@ -61,15 +63,18 @@
 				<tr th:each="category : ${categories}">
 					<td th:text="${category.name}"></td>
 					<td th:text="${category.description}"></td>
-					<td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+					<td><button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 	<script type="text/javascript">
 	$(document).ready(function() {
-	    $('#categoryTable').DataTable();
+	    $('#categoryTable').DataTable({
+	    	"paging": true,
+	 	    "autoWidth": true
+	    });
 	});
-    </script>
+    </script> 
 </body>
 </html>
