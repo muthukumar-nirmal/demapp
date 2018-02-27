@@ -16,7 +16,8 @@ import com.demapp.repository.RoleRepository;
 import com.demapp.repository.UserRepository;
 
 @Service("userService")
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService
+{
 
 	@Autowired
 	private UserRepository userRepository;
@@ -26,12 +27,14 @@ public class UserServiceImpl implements UserService{
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@Override
-	public User findUserByEmail(String email) {
+	public User findUserByEmail(String email)
+	{
 		return userRepository.findByEmail(email);
 	}
 
 	@Override
-	public void saveUser(User user) {
+	public void saveUser(User user) 
+	{
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActive(1);
         Role userRole = roleRepository.findByRole("USER");
@@ -40,20 +43,20 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public List<User> listUsers() {
+	public List<User> listUsers()
+	{
 		return userRepository.findAll();
 	}
 
 	@Override
-	public void deleteUser(Long id) {
-		User user = userRepository.findOne(id);
-		if(user != null){
-			userRepository.delete(id);
-		}
+	public void deleteUser(Long id) 
+	{
+		userRepository.delete(id);
 	}
 	
 	@Override
-	public User getUserByID(Long id) {
+	public User getUserByID(Long id) 
+	{
 		User user = userRepository.findOne(id);
 		if(user == null){
 			return null;
@@ -61,10 +64,10 @@ public class UserServiceImpl implements UserService{
 		return user;
 	}
 	
-	public User getCurrentUser(){
+	public User getCurrentUser()
+	{
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = findUserByEmail(auth.getName());
 		return user;
 	}
-
 }

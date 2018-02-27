@@ -12,10 +12,11 @@ import com.demapp.model.Category;
  * @author muthu_m
  *
  */
-public interface CategoryService {
+public interface CategoryService 
+{
 	List<Category> findAll();
 	Category addOrUpdateCategory(Category category);
-	void deleteCategory(Long id);
+	void deleteCategoryById(Long id);
 	Category getCategoryByID(Long id);
-	List<Category> getCategoryByName(String name);
+	Category getCategoryByName(String name); 
 }

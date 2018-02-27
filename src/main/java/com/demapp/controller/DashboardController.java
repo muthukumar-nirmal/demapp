@@ -7,8 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.demapp.service.UserService;
@@ -18,15 +17,17 @@ import com.demapp.service.UserService;
  *
  */
 @Controller
-public class DashboardController {
+public class DashboardController 
+{
 	
 	@Autowired
 	UserService userService;
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(DashboardController.class);
 
-	@RequestMapping(value="/admin/adminHome", method = RequestMethod.GET)
-	public ModelAndView home(){
+	@GetMapping(value="/admin/adminHome")
+	public ModelAndView home()
+	{
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("userName", userService.getCurrentUser().getName() + " " + userService.getCurrentUser().getLastName());
 		LOGGER.info("Reading username from the user object by passing username {} : " + userService.getCurrentUser().getEmail());
@@ -35,8 +36,9 @@ public class DashboardController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/user/userHome", method = RequestMethod.GET)
-	public ModelAndView userHome(){
+	@GetMapping(value="/user/userHome")
+	public ModelAndView userHome()
+	{
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("userName", userService.getCurrentUser().getName() + " " + userService.getCurrentUser().getLastName());
 		LOGGER.info("Reading username from the user object by passing username {} : " + userService.getCurrentUser().getEmail());

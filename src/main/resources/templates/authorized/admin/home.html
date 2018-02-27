@@ -65,7 +65,7 @@
 							th:utext="${userName}"></span>&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="">Edit Profile</a></li>
-							<li><a href="">Change Password</a></li>
+							<li><a th:href="@{changePassword}">Change Password</a></li>
 							<li><a th:href="@{/logout}">Logout</a></li>
 						</ul></li>
 				</ul>

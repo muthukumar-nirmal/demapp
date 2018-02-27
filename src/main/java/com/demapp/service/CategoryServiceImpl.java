@@ -16,45 +16,44 @@ import com.demapp.repository.CategoryRepository;
  *
  */
 @Service("categoryService")
-public class CategoryServiceImpl implements CategoryService {
+public class CategoryServiceImpl implements CategoryService 
+{
 
 	@Autowired
 	CategoryRepository categoryRepository;
 
 	@Override
-	public List<Category> findAll() {
+	public List<Category> findAll() 
+	{
 		return categoryRepository.findAll();
 	}
 
 	@Override
-	public Category addOrUpdateCategory(Category category) {
+	public Category addOrUpdateCategory(Category category)
+	{
 		return categoryRepository.save(category);
 	}
 
 	@Override
-	public void deleteCategory(Long id) {
-		Category category = categoryRepository.findOne(id);
-		if (category != null) {
-			categoryRepository.delete(category);
-		}
+	public void deleteCategoryById(Long id) 
+	{
+		categoryRepository.delete(id);
 	}
 
 	@Override
-	public Category getCategoryByID(Long id) {
+	public Category getCategoryByID(Long id) 
+	{
 		Category category = categoryRepository.findOne(id);
-		if (category != null) {
+		if (category != null) 
+		{
 			return category;
 		}
 		return null;
 	}
 
 	@Override
-	public List<Category> getCategoryByName(String name) {
-		List<Category> categories = categoryRepository.findByName(name);
-		if(categories.isEmpty()){
-			return null;
-		}
-		return categories;
+	public Category getCategoryByName(String name) 
+	{
+		return categoryRepository.findByName(name);
 	}
-
 }
