@@ -78,13 +78,12 @@ public class CategoryController
 			modelAndView.addObject("successMessage", "Category has been added successfully");
 			modelAndView.addObject("category", new Category());
 			modelAndView.setViewName("redirect:/admin/category");
-			
 		}
 		return modelAndView;
 	}
 	
 	@DeleteMapping(value = "/admin/deleteCategory")
-	public ModelAndView deleteCategory(@RequestParam("id") long id) 
+	public ModelAndView deleteCategory(@RequestParam("categoryId") long id) 
 	{
 		Category category = categoryService.getCategoryByID(id);
 		String redirect = "redirect:/admin/category";

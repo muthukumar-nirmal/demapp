@@ -63,7 +63,7 @@
 				<tr th:each="category : ${categories}">
 					<td th:text="${category.name}"></td>
 					<td th:text="${category.description}"></td>
-					<td><button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></td>
+					<td><a th:href="${'editCategory/' + category.categoryId}" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;<a th:href="${'deleteCategory/' + category.categoryId}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></a></td>
 				</tr>
 			</tbody>
 		</table>
