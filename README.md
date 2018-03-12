@@ -67,3 +67,47 @@
 		4.8.2 User log wise report
 		4.8.3 View register users
 		4.8.4 
+
+		
+	// Some actions to be done with following :::
+	
+	Base Template :
+	----------------------
+	Register
+	Forgot Password
+	Login
+	Edit Profile
+	Change Password
+	Logout
+	
+	User Role : Admin
+	-------------------------
+	Mange Dashboard
+	Manage User
+	Manage Role
+	Assign User with Role
+	
+	
+	Technology : 
+	--------------------
+	Java
+	Spring Boot
+	
+	Database : 
+	---------------------
+	Mysql
+	Hibernate
+	JPA
+	
+	User Interface
+	------------------
+	HTML5
+	Bootstrap
+	CSS3
+	
+	Client Technology :
+	-------------------------
+	Angular 5x
+
+
+		
