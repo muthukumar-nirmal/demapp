@@ -41,12 +41,6 @@
 
 <body>
 	<div class="container contactView">
-	 <!--    <span sec:authorize="isAuthenticated()">
-                | Logged user: <span sec:authentication="name"></span> |
-                Roles: <span sec:authentication="principal.authorities"></span> |
-                <a th:href="@{/logout}">Sign Out</a>
-            </span> -->
-	
 		<!-- Admin Dashboard information -->
 		<div id="adminDashboard">
 			<div class="row">
@@ -156,17 +150,14 @@
 	</div>
 
 	<script type="text/javascript">
-		$(document).ready(function() {
+		$(document).ready(function() 
+		{
 			loadChart();
 			loadChart1();
 			loadChart2();
-
-			$('#userDashboard').hide();
-			$('#expense').hide();
 			$('#dashboard').addClass('active');
-			$('#listUser').removeClass('active');
-			$('#listCategory').removeClass('active');
-			$('#testApp').removeClass('active');
+		    $('#listUser').removeClass('active');
+		    $('#listCategory').removeClass('active');
 		});
 
 		function loadChart() {

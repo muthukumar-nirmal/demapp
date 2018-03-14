@@ -12,52 +12,25 @@ function isValidEmailAddress(emailAddress)
 
 // Show and Remove active class before login to this application
 
-function removeActiveClass(){
+function removeActiveClass()
+{
+	// For all the user 
+	$('#home').removeClass('active');
     $('#aboutUs').removeClass('active');
     $('#contactUs').removeClass('active');
-    $('#home').removeClass('active');
-    $('#loginId').removeClass('active');
     $('#reigisterId').removeClass('active');
+	$('#loginId').removeClass('active');
+    
+    // For normal user
+    $('#userDashboard').removeClass('active');
+    $('#expense').removeClass('active');
+    $('#testApp').removeClass('active');
+    
+    // For admin user
+    $('#dashboard').removeClass('active');
+    $('#listUser').removeClass('active');
+    $('#listCategory').removeClass('active');
 }
 
-function hideAndShowMenuBeforeLogin()
-{
-    $('#home').hide();
-    $('#contactUs').hide();
-    $('#aboutUs').hide();
-}
-
-function hideAndShowBodySection()
-{
-    $('#aboutUsInformation').hide();
-    $('#contactUsInformation').hide();
-    $('#userHomeInformation').hide();
-    $('#signInInformation').hide();
-    $('#registerInformation').hide();
-}
-
-function loadHome()
-{
-    removeActiveClass();
-    hideAndShowBodySection();
-    $('#home').addClass('active');
-    $('#userHomeInformation').show();
-}
-
-function loadAboutUs()
-{
-    removeActiveClass();
-    hideAndShowBodySection();
-    $('#aboutUs').addClass('active');
-    $('#aboutUsInformation').show();
-}
-
-function loadContactUs()
-{
-    removeActiveClass();
-    hideAndShowBodySection();
-    $('#contactUs').addClass('active');
-    $('#contactUsInformation').show();
-}
 
 

@@ -2,11 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
- <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/common.css}" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
 
 </head>
 <body>
@@ -26,9 +29,6 @@
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li id="userDashboard"><a th:href="@{userHome}">Dashboard</a></li>
-						<li id="expense"><a th:href="@{userHome}">Expense</a></li>
-						<li id="testApp"><a th:href="@{userHome}">Test</a></li>
 						<li id="dashboard"><a th:href="@{adminHome}">Dashboard</a></li>
 						<li id="listUser"><a th:href="@{user}">User</a></li>
 						<li id="listCategory"><a th:href="@{category}">Category</a></li>

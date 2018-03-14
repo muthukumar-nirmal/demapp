@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{/css/dashboard.css}" />
 
-<th:block th:include="layout/authheader"></th:block>
+<th:block th:include="layout/authuserheader"></th:block>
 </head>
 
 <body>
@@ -28,11 +28,8 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#userDashboard').addClass('active');
-		$('#expense').removeClass('active');
-		$('#dashboard').hide();
-		$('#listUser').hide();
-		$('#listCategory').hide();
-		$('#testApp').hide();
+	    $('#expense').removeClass('active');
+	    $('#testApp').removeClass('active');
 	});
 
 </script>	

@@ -4,7 +4,7 @@
 
 <head>
 <title>Daily Expense Manager</title>
-
+<script type="text/javascript" th:src="@{/js/common.js}"></script>
 <th:block th:include="layout/header"></th:block>
 </head>
 
@@ -109,9 +109,9 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#contactUs').addClass('active');
-			$('#aboutUs').removeClass('active');
 			$('#home').removeClass('active');
-			$('#reigisterId').removeClass('active');
+		    $('#aboutUs').removeClass('active');
+		    $('#reigisterId').removeClass('active');
 			$('#loginId').removeClass('active');
 		});
 
