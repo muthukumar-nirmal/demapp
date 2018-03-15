@@ -27,7 +27,6 @@ import com.demapp.service.UserService;
 @Controller
 public class CategoryController 
 {
-	
 	private static final Logger LOGGER = LoggerFactory.getLogger(CategoryController.class);
 	
 	@Autowired
@@ -64,9 +63,7 @@ public class CategoryController
 		Category categoryExists = (Category) categoryService.getCategoryByName(category.getName());
 		if (categoryExists != null) 
 		{
-			bindingResult
-					.rejectValue("name", "error.category",
-							"There is already a category registered with the name provided");
+			bindingResult.rejectValue("name", "error.category", "There is already a category registered with the name provided");
 		}
 		if (bindingResult.hasErrors())
 		{

@@ -9,5 +9,4 @@ import com.demapp.model.Role;
 public interface RoleRepository extends JpaRepository<Role, Long>
 {
 	Role findByRole(String role);
-
 }

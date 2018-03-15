@@ -39,6 +39,9 @@ public class User
 	private String password;
 	
 	@javax.persistence.Transient
+	private String newPassword;
+	
+	@javax.persistence.Transient
 	private String confirmPassword;
 	
 	@Column(name = "name")
@@ -96,6 +99,26 @@ public class User
 	public void setPassword(String password) 
 	{
 		this.password = password;
+	}
+	
+	public String getNewPassword() 
+	{
+		return newPassword;
+	}
+
+	public void setNewPassword(String newPassword) 
+	{
+		this.newPassword = newPassword;
+	}
+
+	public String getConfirmPassword() 
+	{
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) 
+	{
+		this.confirmPassword = confirmPassword;
 	}
 
 	public String getName() 

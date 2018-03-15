@@ -15,7 +15,8 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter
+{
 
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -33,10 +34,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	private SimpleAuthenticationSuccessHandler successHandler;
 
 	@Override
-	protected void configure(AuthenticationManagerBuilder auth)
-			throws Exception {
-		auth.
-			jdbcAuthentication()
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception 
+	{
+		auth.jdbcAuthentication()
 				.usersByUsernameQuery(usersQuery)
 				.authoritiesByUsernameQuery(rolesQuery)
 				.dataSource(dataSource)
@@ -44,16 +44,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	}
 
 	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		
-		http.
-			authorizeRequests()
+	protected void configure(HttpSecurity http) throws Exception
+	{
+		http.authorizeRequests()
 				.antMatchers("/").permitAll()
 				.antMatchers("/login").permitAll()
 				.antMatchers("/registration").permitAll()
 				.antMatchers("/home").permitAll()
 				.antMatchers("/aboutUs").permitAll()
 				.antMatchers("/contactUs").permitAll()
+				.antMatchers("/user").hasRole("USER")
 				.antMatchers("/admin").hasRole("ADMIN").anyRequest()
 				.authenticated().and().csrf().disable().formLogin()
 				.loginPage("/login").failureUrl("/login?error=true")
@@ -67,10 +67,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	}
 	
 	@Override
-	public void configure(WebSecurity web) throws Exception {
-	    web
-	       .ignoring()
-	       .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
+	public void configure(WebSecurity web) throws Exception 
+	{
+	    web.ignoring().antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
 	}
 
 }

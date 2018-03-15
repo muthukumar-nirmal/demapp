@@ -11,6 +11,8 @@ com\demapp\repository\UserRepository.class
 com\demapp\service\CategoryServiceImpl.class
 com\demapp\DemoApplication.class
 com\demapp\configuration\SimpleAuthenticationSuccessHandler.class
+com\demapp\controller\UserController.class
 com\demapp\configuration\WebMvcConfig.class
 com\demapp\model\Role.class
+com\demapp\controller\CategoryController.class
 com\demapp\controller\LoginController.class

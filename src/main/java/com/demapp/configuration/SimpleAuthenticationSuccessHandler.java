@@ -20,31 +20,41 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component
-public class SimpleAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
-	
+public class SimpleAuthenticationSuccessHandler implements AuthenticationSuccessHandler 
+{
 	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 	
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest arg0, HttpServletResponse arg1, Authentication authentication)
-			throws IOException, ServletException {
-		
+	throws IOException, ServletException 
+	{
 		Collection < ? extends GrantedAuthority> authorities = authentication.getAuthorities();
-		authorities.forEach(authority -> {
-			if(authority.getAuthority().equals("USER")) {
-			try {
+		authorities.forEach(authority -> 
+		{
+			if(authority.getAuthority().equals("USER")) 
+			{
+				try 
+				{
 					redirectStrategy.sendRedirect(arg0, arg1, "/user/userHome");
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
+				} 
+				catch (Exception e) 
+				{
 					e.printStackTrace();
 				}
-			} else if(authority.getAuthority().equals("ADMIN")) {
-			try {
+			} 
+			else if(authority.getAuthority().equals("ADMIN")) 
+			{
+				try 
+				{
 					redirectStrategy.sendRedirect(arg0, arg1, "/admin/adminHome");
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
+				}
+				catch (Exception e) 
+				{
 					e.printStackTrace();
 				}
-			} else {
+			} 
+			else 
+			{
 	            throw new IllegalStateException();
 	        }
 		});
